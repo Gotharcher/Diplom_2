@@ -27,6 +27,14 @@ public class UserRequest {
                 .post(SiteAddress.AUTH_LOGIN);
     }
 
+    public static Response updateUserData(User user, String authToken){
+        return given()
+                .header("Content-Type", "application/json")
+                .header("Authorization", authToken)
+                .body(user)
+                .patch(SiteAddress.USER_API);
+    }
+
     public static Response deleteUser(String authToken){
         String URIaddress = SiteAddress.USER_API;
         return given()
