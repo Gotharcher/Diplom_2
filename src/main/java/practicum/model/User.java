@@ -1,4 +1,4 @@
-package model;
+package practicum.model;
 
 import org.apache.commons.lang3.RandomStringUtils;
 

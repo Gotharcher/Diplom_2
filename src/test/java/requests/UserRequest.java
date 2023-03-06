@@ -1,6 +1,10 @@
+package requests;
+
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import model.User;
+import practicum.model.User;
+import practicum.SiteAddress;
+
 
 import static io.restassured.RestAssured.given;
 

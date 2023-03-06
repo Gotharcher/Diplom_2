@@ -1,3 +1,5 @@
+package practicum;
+
 public class SiteAddress {
     public final static String SITE_ADDRESS = "https://stellarburgers.nomoreparties.site";
     public final static String USER_CREATE = "api/auth/register";

@@ -1,4 +1,4 @@
-package model;
+package practicum.model;
 
 public class ResponseModel {
     private boolean success;

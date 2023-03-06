@@ -1,11 +1,12 @@
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
-import model.ResponseModel;
-import model.User;
+import practicum.model.ResponseModel;
+import practicum.model.User;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import requests.UserRequest;
 
 import static org.junit.Assert.*;
 
@@ -27,7 +28,6 @@ public class CreateUserTest {
         assertEquals("Положительный код ответа", 200, response.statusCode());
         resModel = response.body().as(ResponseModel.class);
         assertTrue("В ответе сообщение об успехе", resModel.isSuccess());
-
     }
 
     @Test
