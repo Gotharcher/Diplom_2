@@ -1,6 +1,6 @@
 package practicum.model;
 
-public class ResponseModel {
+public class UserResponse {
     private boolean success;
     private User user;
     private String accessToken;

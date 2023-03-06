@@ -5,7 +5,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import practicum.SiteAddress;
-import practicum.model.ResponseModel;
+import practicum.model.UserResponse;
 import practicum.model.User;
 import requests.UserRequest;
 
@@ -14,13 +14,13 @@ import static org.junit.Assert.assertTrue;
 
 public class LoginUserTest {
     User user;
-    ResponseModel createdModel;
+    UserResponse createdModel;
 
     @Before
     public void setUp() {
         RestAssured.baseURI = SiteAddress.SITE_ADDRESS;
         user = User.createRandomUser();
-        createdModel = UserRequest.createUser(user).body().as(ResponseModel.class);
+        createdModel = UserRequest.createUser(user).body().as(UserResponse.class);
     }
 
     @Test

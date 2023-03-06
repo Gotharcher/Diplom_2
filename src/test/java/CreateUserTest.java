@@ -1,7 +1,7 @@
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
-import practicum.model.ResponseModel;
+import practicum.model.UserResponse;
 import practicum.model.User;
 import org.junit.After;
 import org.junit.Before;
@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 public class CreateUserTest {
 
     User user;
-    ResponseModel resModel;
+    UserResponse resModel;
 
     @Before
     public void setUp() {
@@ -26,7 +26,7 @@ public class CreateUserTest {
     public void createNewUser() {
         Response response = createUser(user);
         assertEquals("Положительный код ответа", 200, response.statusCode());
-        resModel = response.body().as(ResponseModel.class);
+        resModel = response.body().as(UserResponse.class);
         assertTrue("В ответе сообщение об успехе", resModel.isSuccess());
     }
 
@@ -35,9 +35,9 @@ public class CreateUserTest {
     public void createSameUser() {
         Response response = createUser(user);
         assertEquals("Положительный код ответа", 200, response.statusCode());
-        resModel = response.body().as(ResponseModel.class);
+        resModel = response.body().as(UserResponse.class);
         response = createUser(user);
-        ResponseModel failResMod = response.body().as(ResponseModel.class);
+        UserResponse failResMod = response.body().as(UserResponse.class);
         assertEquals("Негативный код ответа", 403, response.statusCode());
         assertFalse("В ответе сообщение о неудаче", failResMod.isSuccess());
         assertEquals("Текст сообщения информирует о причине - логин занят", "User already exists", failResMod.getMessage());
@@ -63,7 +63,7 @@ public class CreateUserTest {
 
     public void checkCreationFailureDueNoField() {
         Response response = createUser(user);
-        resModel = response.body().as(ResponseModel.class);
+        resModel = response.body().as(UserResponse.class);
         assertEquals("Негативный код ответа", 403, response.statusCode());
         assertFalse("В ответе сообщение о неудаче", resModel.isSuccess());
         assertEquals("Текст сообщения информирует о причине - не заполнено обязательное поле", "Email, password and name are required fields", resModel.getMessage());

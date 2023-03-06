@@ -3,7 +3,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import practicum.SiteAddress;
-import practicum.model.ResponseModel;
+import practicum.model.UserResponse;
 import practicum.model.User;
 import requests.UserRequest;
 
@@ -12,13 +12,13 @@ import static org.junit.Assert.*;
 
 public class UpdateUserDataTest {
     User user;
-    ResponseModel resModel;
+    UserResponse resModel;
 
     @Before
     public void setUp() {
         UserRequest.init();
         user = User.createRandomUser();
-        resModel = UserRequest.createUser(user).body().as(ResponseModel.class);
+        resModel = UserRequest.createUser(user).body().as(UserResponse.class);
     }
 
     @Test
