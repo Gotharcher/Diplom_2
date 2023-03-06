@@ -27,6 +27,8 @@ public class UpdateUserDataTest {
         newUserData.setPassword("0987654321");
         Response response = UserRequest.updateUserData(newUserData, resModel.getAccessToken());
         assertTrue("В ответе сообщение об успехе", response.path("success"));
+        assertTrue("С новыми данными можно залогиниться", UserRequest.authUser(newUserData).path("success"));
+        assertFalse("Старые данные больше не позволяют логиниться", UserRequest.authUser(user).path("success"));
     }
 
     @Test
