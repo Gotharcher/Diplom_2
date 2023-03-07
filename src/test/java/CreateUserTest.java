@@ -1,6 +1,8 @@
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import practicum.SiteAddress;
 import practicum.model.UserResponse;
 import practicum.model.User;
 import org.junit.After;
@@ -17,7 +19,7 @@ public class CreateUserTest {
 
     @Before
     public void setUp() {
-        UserRequest.init();
+        RestAssured.baseURI = SiteAddress.SITE_ADDRESS;
         user = User.createRandomUser();
     }
 

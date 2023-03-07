@@ -1,3 +1,4 @@
+import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.junit.After;
 import org.junit.Before;
@@ -18,7 +19,7 @@ public class UsersOrdersListTest {
 
     @Before
     public void setUp() {
-        UserRequest.init();
+        RestAssured.baseURI = SiteAddress.SITE_ADDRESS;
         user = User.createRandomUser();
         createdModel = UserRequest.createUser(user).body().as(UserResponse.class);
     }

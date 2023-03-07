@@ -9,9 +9,6 @@ import practicum.SiteAddress;
 import static io.restassured.RestAssured.given;
 
 public class UserRequest {
-    public static void init(){
-        RestAssured.baseURI = SiteAddress.SITE_ADDRESS;
-    }
 
     public static Response createUser(User user){
         return given()
