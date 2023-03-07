@@ -1,16 +1,23 @@
 package practicum.model;
 
 public class Order {
-    private Ingredient[] ingredients;
+    private String[] ingredients;
     private String _id;
     private String status;
     private String number;
 
-    public Ingredient[] getIngredients() {
+    public Order() {
+    }
+
+    public Order(Ingredient ingredient) {
+        this.ingredients = new String[] {ingredient.get_id()};
+    }
+
+    public String[] getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(Ingredient[] ingredients) {
+    public void setIngredients(String[] ingredients) {
         this.ingredients = ingredients;
     }
 

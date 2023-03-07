@@ -2,7 +2,7 @@ package practicum.model;
 
 public class IngredientResponse {
     private boolean success;
-    private Ingredient[] ingredients;
+    private Ingredient[] data;
 
     public boolean isSuccess() {
         return success;
@@ -13,10 +13,10 @@ public class IngredientResponse {
     }
 
     public Ingredient[] getIngredients() {
-        return ingredients;
+        return data;
     }
 
     public void setIngredients(Ingredient[] ingredients) {
-        this.ingredients = ingredients;
+        this.data = ingredients;
     }
 }
