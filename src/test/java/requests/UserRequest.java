@@ -1,0 +1,39 @@
+package requests;
+
+import io.restassured.response.Response;
+import practicum.SiteAddress;
+import practicum.model.User;
+
+import static io.restassured.RestAssured.given;
+
+public class UserRequest {
+
+    public static Response createUser(User user) {
+        return given()
+                .header("Content-Type", "application/json")
+                .body(user)
+                .post(SiteAddress.USER_CREATE);
+    }
+
+    public static Response authUser(User user) {
+        return given()
+                .header("Content-Type", "application/json")
+                .body(user)
+                .post(SiteAddress.AUTH_LOGIN);
+    }
+
+    public static Response updateUserData(User user, String authToken) {
+        return given()
+                .header("Content-Type", "application/json")
+                .header("Authorization", authToken)
+                .body(user)
+                .patch(SiteAddress.USER_API);
+    }
+
+    public static Response deleteUser(String authToken) {
+        String URIaddress = SiteAddress.USER_API;
+        return given()
+                .header("Authorization", authToken)
+                .delete(URIaddress);
+    }
+}
