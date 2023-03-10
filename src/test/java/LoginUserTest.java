@@ -5,8 +5,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import practicum.SiteAddress;
-import practicum.model.UserResponse;
 import practicum.model.User;
+import practicum.model.UserResponse;
 import requests.UserRequest;
 
 import static org.junit.Assert.assertFalse;
@@ -31,7 +31,7 @@ public class LoginUserTest {
 
     @Test
     public void checkIncorrectLogin() {
-        user.setEmail(RandomStringUtils.randomAlphabetic(10)+"mail.com");
+        user.setEmail(RandomStringUtils.randomAlphabetic(10) + "mail.com");
         Response response = UserRequest.authUser(user);
         assertFalse("В ответе сообщение о неудаче", response.path("success"));
     }

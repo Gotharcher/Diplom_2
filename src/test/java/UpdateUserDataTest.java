@@ -4,8 +4,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import practicum.SiteAddress;
-import practicum.model.UserResponse;
 import practicum.model.User;
+import practicum.model.UserResponse;
 import requests.UserRequest;
 
 import static io.restassured.RestAssured.given;

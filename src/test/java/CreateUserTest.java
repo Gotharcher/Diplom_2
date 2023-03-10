@@ -2,12 +2,12 @@ import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import practicum.SiteAddress;
-import practicum.model.UserResponse;
-import practicum.model.User;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import practicum.SiteAddress;
+import practicum.model.User;
+import practicum.model.UserResponse;
 import requests.UserRequest;
 
 import static org.junit.Assert.*;

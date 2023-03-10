@@ -10,7 +10,7 @@ public class Order {
     }
 
     public Order(Ingredient ingredient) {
-        this.ingredients = new String[] {ingredient.get_id()};
+        this.ingredients = new String[]{ingredient.get_id()};
     }
 
     public String[] getIngredients() {

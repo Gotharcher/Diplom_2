@@ -26,19 +26,19 @@ public class CreateOrderTest {
         validIngredient = getFirstIngredientFromArray();
     }
 
-    public String[] getIngredientsArrayFromIngredient(Ingredient validIngredient){
+    public String[] getIngredientsArrayFromIngredient(Ingredient validIngredient) {
         return new String[]{validIngredient.get_id()};
     }
 
     @Test
-    public void createOrderWithAuth(){
+    public void createOrderWithAuth() {
         Order order = new Order(validIngredient);
         Response response = OrderRequest.createOrder(order, authToken);
         assertTrue("Получили сообщение об успехе", response.path("success"));
     }
 
     @Test
-    public void createOrderWithoutAuth(){
+    public void createOrderWithoutAuth() {
         Order order = new Order(validIngredient);
         Response response = given()
                 .header("Content-Type", "application/json")
@@ -48,7 +48,7 @@ public class CreateOrderTest {
     }
 
     @Test
-    public void createOrderWithAuthWithoutIngredients(){
+    public void createOrderWithAuthWithoutIngredients() {
         Order order = new Order();
         Response response = OrderRequest.createOrder(order, authToken);
         assertFalse("Получили сообщение о неудаче", response.path("success"));
@@ -57,7 +57,7 @@ public class CreateOrderTest {
     }
 
     @Test
-    public void createOrderWithAuthIncorrectHash(){
+    public void createOrderWithAuthIncorrectHash() {
         validIngredient.set_id("ПриветЯИнгридиент!");
         Order order = new Order(validIngredient);
         Response response = OrderRequest.createOrder(order, authToken);
@@ -65,7 +65,7 @@ public class CreateOrderTest {
     }
 
     @Test
-    public void createOrderWithAuthChangedHash(){
+    public void createOrderWithAuthChangedHash() {
         validIngredient.set_id(validIngredient.get_id().replace("a", "0"));
         Order order = new Order(validIngredient);
         Response response = OrderRequest.createOrder(order, authToken);

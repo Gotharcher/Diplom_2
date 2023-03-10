@@ -8,15 +8,15 @@ import static io.restassured.RestAssured.given;
 
 public class IngredientRequest {
 
-    public static Ingredient[] getIngredientsArray(){
+    public static Ingredient[] getIngredientsArray() {
         return getIngredientResponse().getIngredients();
     }
 
-    public static IngredientResponse getIngredientResponse(){
+    public static IngredientResponse getIngredientResponse() {
         return given().get(SiteAddress.INGREDIENTS).as(IngredientResponse.class);
     }
 
-    public static Ingredient getFirstIngredientFromArray(){
+    public static Ingredient getFirstIngredientFromArray() {
         return getIngredientsArray()[0];
     }
 }
